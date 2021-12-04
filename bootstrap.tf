@@ -1,13 +1,13 @@
 terraform {
   required_version = ">=1.0.11"
-  # backend "s3" {
-  #   endpoint                    = "fra1.digitaloceanspaces.com"
-  #   bucket                      = "terraform-state-bucket"
-  #   key                         = "terraform.tfstate"
-  #   region                      = "eu-central-1"
-  #   skip_credentials_validation = true
-  #   skip_metadata_api_check     = true
-  # }
+  backend "s3" {
+    endpoint                    = "fra1.digitaloceanspaces.com"
+    bucket                      = "terraform-state-bucket"
+    key                         = "terraform.tfstate"
+    region                      = "eu-central-1"
+    skip_credentials_validation = true
+    skip_metadata_api_check     = true
+  }
   required_providers {
     digitalocean = {
       source = "digitalocean/digitalocean"
