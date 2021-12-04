@@ -14,7 +14,7 @@ export TF_VAR_do_token=<YOUR_DO_PERSONAL_ACCESS_TOKEN>
 export TF_VAR_spaces_access_key_id=<YOUR_DO_SPACES_ACCESS_KEY_ID>
 export TF_VAR_spaces_secret_key=<YOUR_DO_SPACES_SECRET_KEY>
 export AWS_ACCESS_KEY_ID=<YOUR_DO_SPACES_ACCESS_KEY_ID>
-export AWS_SECRET_KEY=<YOUR_DO_SPACES_SECRET_KEY>
+export AWS_SECRET_ACCESS_KEY=<YOUR_DO_SPACES_SECRET_KEY>
 ```
 3. comment out the `backend` block in the `terraform block
 
@@ -27,3 +27,12 @@ export AWS_SECRET_KEY=<YOUR_DO_SPACES_SECRET_KEY>
 8. Run `terraform init` again. You will be prompted to ask if you want to copy the local state to the remote bucket. Pick `yes`.
 9. Run `terraform plan`. Your plan should come up empty.
 10. Rejoice, you have bootstrapped a terraform with a remote state hosted on Digital Ocean.
+
+## How to configure Github Actions
+
+Add the following secrets, either on repository-level or on organization-level:
+- DO_SPACES_ACCESS_KEY_ID
+- DO_SPACES_SECRET_ACCESS_KEY
+- DO_ACCESS_TOKEN
+
+The actions are configured to only run on a manual `workflow_dispatch` trigger.
